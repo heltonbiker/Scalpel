@@ -86,7 +86,7 @@ When the compilation constant `Scalpel` is detected. (Requires Fody version 1.11
 
 ## But WHY?
 
-When coding any tests then these tests should be a first class citizen to the functionality you are creating. As such it makes sense for them to be co-located with the code being tested. Unfortunately due to the nature of .net this is very difficult to achieve. The reason is that if you place tests next to the code being tested you and up having those tests include in your deployable assembly. You also have the problem of your assembly referencing unit test helper libraries like NUnit and Moq.
+When coding tests to the functionality you are creating, then these tests should be a first class citizen in your project. As such, it makes sense for them to be co-located with the code being tested. Unfortunately, due to the nature of .Net, this is very difficult to achieve. The reason is that if you place tests next to the code being tested, you end up having those tests included in your deployable assembly. You also have the problem of your assembly referencing unit test helper libraries like NUnit and Moq.
 
 So Scalpel helps you work around the above problem by striping tests and references from your assembly. It also has the added side effect of allowing you to test internal types without needing to use the [InternalsVisibleToAttribute](http://msdn.microsoft.com/en-us/library/system.runtime.compilerservices.internalsvisibletoattribute.aspx).
 
@@ -101,18 +101,18 @@ This way tests can run from your `Release` configuration and you can deploy from
 
 ## Configuration Options
 
-All configuration options are access by modifying the `Scalpel` node in FodyWeavers.xml
+All configuration options are accessed by modifying the `Scalpel` node in FodyWeavers.xml
 
 
 ### RemoveReferences
 
-A list of assembly names to removed at compile time.
+A list of assembly names to be removed at compile time.
 
 Do not include `.exe` or `.dll` in the names.
 
 Can take two forms.
 
-As an element with items delimited by a newline.
+ - As an element with items delimited by a newline.
 
 ```xml
 <Scalpel>
@@ -123,7 +123,7 @@ As an element with items delimited by a newline.
 </Scalpel>
 ```
 
-Or as a attribute with items delimited by a pipe `|`.
+ - Or as a attribute with items delimited by a pipe `|`.
 
 ```xml
 <Scalpel RemoveReferences='Foo|Bar'/>
